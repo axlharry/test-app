@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,19 +17,21 @@ use App\Models\Post;
 
 Route::get('/', function () {
     return view('homepage', [
-        'posts' => Post::all()
+        'posts' => Post::latest()->get()
     ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
-
+Route::get('posts/{post:slug}', function (Post $post) {
     return view('post', [
-        'post' => Post::find($slug)
+        'post' => $post
     ]);
+});
 
-})->where('post', '[A-z_\-]+');
-
-
+Route::get('/authors/{author:username}', function (User $author) {
+    return view('author', [
+        'posts' => $author->posts
+    ]);
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
