@@ -9,6 +9,12 @@
             <p>
             By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
         </p>
+        <span>Published <time> {{ $post->created_at->diffForHumans() }}</time></span>
         </article>
     @endforeach
+    <div class="lg:grid lg:grid-cols-3">
+    <x-post-card/>
+    <x-post-card/>
+    <x-post-card/>
+    </div>
 </x-layout>
