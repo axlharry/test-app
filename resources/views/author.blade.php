@@ -1,14 +1,17 @@
 <x-layout>
-    @foreach ($posts as $post)
-        <article>
-            <h1>
-                <a href="/posts/{{ $post->slug }}">
-                    {{ $post->title }}
-                </a>
-            </h1>
-            <p>
-            By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
-        </p>
-        </article>
-    @endforeach
+<article>
+        <h1 class="text-4xl font-bold">{{ $posts[0]->author->name }}</h1>
+
+        <h2 class="text-xl py-6">Latest posts by {{ $posts[0]->author->name }}:</h2>
+
+
+
+            <div class="lg:grid lg:grid-cols-3">
+            @foreach ($posts as $post)
+                <x-post-card :post="$post"/>
+            @endforeach
+        </div>
+
+    </article>
+
 </x-layout>
