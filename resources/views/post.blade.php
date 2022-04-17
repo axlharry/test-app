@@ -20,6 +20,6 @@
 
     </article>
 
-    <a href="/" class="text-green-500 text-base">Go Back</a>
+    <a href="/" class="text-green-500 text-base">Go to home</a>
 
 </x-layout>
