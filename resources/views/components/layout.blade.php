@@ -6,10 +6,10 @@
 
 <body>
     <section class="px-6 py-8">
-        <nav>
+        <nav class="pb-6">
             <div>
                 <a href="/">
-                    <img src="/images/stockoclock-logo.png" alt="Stock O'Clock Logo" width="200">
+                    <img src="/images/stockoclock-logo.png" alt="Stock O'Clock Logo" width="280">
                 </a>
             </div>
         </nav>
