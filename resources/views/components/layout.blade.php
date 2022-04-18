@@ -6,11 +6,24 @@
 
 <body>
     <section class="px-6 py-8">
-        <nav class="pb-6">
-            <div>
+        <nav>
+            <div class="pb-6 flex md:justify-between items-center">
                 <a href="/">
                     <img src="/images/stockoclock-logo.png" alt="Stock O'Clock Logo" width="280">
                 </a>
+                <div class="m-left-auto align-right">
+                @guest
+                    <a href="/login">Log in</a>
+                    <a href="/register">Register</a>
+                @endguest
+                @auth
+                    <a href="/authors/{{ auth()->user()->username }}">{{ auth()->user()->name }}</a>
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <button type="submit">Log out</button>
+                    </form>
+                @endauth
+                </div>
             </div>
         </nav>
 
