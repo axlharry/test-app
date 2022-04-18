@@ -18,6 +18,24 @@
 </div>
     </article>
     <section>
+
+
+    <h2>Comments</h2>
+    @guest
+                    <span><a href="/login">Log in</a> or <a href="/register">Register</a> to add a comment.</span>
+                @endguest
+    @auth
+    <form method="POST" action="/posts/{{ $post->slug }}/comments" class="flex">
+        @csrf 
+<div>
+        <img src="https://i.pravatar.cc/100" alt="Profile Picture">
+        </div>
+        <div>
+            <textarea name="body" cols="30" rows="10" placeholder="Add a comment..."></textarea>
+        </div>
+<button type="submit">Submit comment</button>
+    </form>
+    @endauth
     @foreach ($post->comments as $comment)
         <article class="flex">
             <div>
