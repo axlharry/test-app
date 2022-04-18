@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article>
-    <div>
+    <div class="mx-2 my-2">
         <div>
             <img src="/images/wall-street.jpg" alt="Wall Street">
         </div>
