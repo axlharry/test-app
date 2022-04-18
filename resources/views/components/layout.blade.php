@@ -20,7 +20,7 @@
                     <a href="/authors/{{ auth()->user()->username }}">{{ auth()->user()->name }}</a>
                     <form method="POST" action="/logout">
                         @csrf
-                        <button type="submit">Log out</button>
+                        <button type="submit" class="text-red-500">Log out</button>
                     </form>
                 @endauth
                 </div>

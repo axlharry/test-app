@@ -2,16 +2,17 @@
 
 <article>
     <div class="mx-2 my-2">
+    <a href="/posts/{{ $post->slug }}">
         <div>
             <img src="/images/wall-street.jpg" alt="Wall Street">
-        </div>
-        <div>
-            <a href="/posts/{{ $post->slug }}">
+
+
+
             <h2 class="text-3xl font-bold hover:text-gray-500">
                 {{ $post->title }}
             </h2>
-</a>
-
+</a>        </div>
+<div>
 <h3 class="font-bold hover:text-green-500">
 By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
             </h3>
