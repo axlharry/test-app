@@ -13,6 +13,10 @@ class PostController extends Controller{
         ]);
     }
 
+    public function create() {
+        return view('create');
+    }
+
     public function show(Post $post) {
         return view('post', [
             'post' => $post

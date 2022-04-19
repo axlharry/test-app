@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Comment;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,6 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        User::create([
+            'name' => 'Josh Harry',
+            'username' => 'joshharry',
+            'email' => 'josh@example.com',
+            'email_verified_at' => now(),
+            'password' => 'testtest',
+            'isAdmin' => true,
+            'remember_token' => Str::random(10),
+        ]);
+
          Comment::factory(12)->create();
 
     }

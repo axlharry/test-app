@@ -32,6 +32,8 @@ Route::get('/authors/{author:username}', function (User $author) {
 Route::get('register', [RegisteredUserController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisteredUserController::class, 'store'])->middleware('guest');
 
+Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
