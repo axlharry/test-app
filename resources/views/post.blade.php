@@ -26,7 +26,7 @@
         @endguest
         @auth
         <x-box>
-        <form method="POST" action="/posts/{{ $post->slug }}/comments" class="flex">
+        <form method="post" action="/posts/{{ $post->slug }}/comments" class="flex">
             @csrf
             <div>
                 <img src="https://i.pravatar.cc/100" alt="Profile Picture">

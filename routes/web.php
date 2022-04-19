@@ -33,6 +33,7 @@ Route::get('register', [RegisteredUserController::class, 'create'])->middleware(
 Route::post('register', [RegisteredUserController::class, 'store'])->middleware('guest');
 
 Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
+Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

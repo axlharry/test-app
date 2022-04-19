@@ -13,11 +13,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'body'
-    ];
+    protected $guarded = [];
 
     public function author()
     {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<title>My Blog</title>
+<title>Stock O'Clock</title>
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 
