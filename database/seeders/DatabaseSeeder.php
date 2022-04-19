@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'josh@example.com',
             'email_verified_at' => now(),
             'password' => 'testtest',
-            'isAdmin' => true,
+            'is_admin' => true,
             'remember_token' => Str::random(10),
         ]);
 

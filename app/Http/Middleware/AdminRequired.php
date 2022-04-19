@@ -16,7 +16,7 @@ class AdminRequired
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()?->isAdmin != true) {
+        if (auth()->user()?->is_admin != true) {
             abort(403);
         }
 
