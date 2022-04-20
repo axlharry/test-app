@@ -37,6 +37,7 @@ Route::get('user/posts/create', [PostController::class, 'create'])->middleware('
 Route::post('user/posts', [PostController::class, 'store'])->middleware('auth');
 Route::get('user/posts/{post}/edit', [PostController::class, 'edit'])->middleware('auth');
 Route::patch('user/posts/{post}', [PostController::class, 'update'])->middleware('auth');
+Route::delete('user/posts/{post}', [PostController::class, 'destroy'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

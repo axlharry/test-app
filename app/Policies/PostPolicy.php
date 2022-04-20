@@ -25,7 +25,7 @@ public function before(User $user, $ability)
 }
 
     /**
-     * Determine whether the user can edit models.
+     * Determine whether the user can edit posts.
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Post  $post
@@ -37,13 +37,25 @@ public function before(User $user, $ability)
     }
 
     /**
-     * Determine whether the user can update models.
+     * Determine whether the user can update postss.
      *
      * @param  \App\Models\User  $user
      * @param  \App\Models\Post  $post
      * @return bool
      */
     public function update(User $user, Post $post)
+    {
+        return $user->id === $post->user_id;
+    }
+
+        /**
+     * Determine whether the user can delete posts.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Post  $post
+     * @return bool
+     */
+    public function delete(User $user, Post $post)
     {
         return $user->id === $post->user_id;
     }

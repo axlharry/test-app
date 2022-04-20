@@ -11,6 +11,13 @@
 
         <a href="/user/posts/{{ $post->id }}/edit" class="text-green-500">Edit</a>
 
+        <form method="post" action="/user/posts/{{ $post->id }}">
+            @csrf
+            @method('DELETE')
+
+            <button class="text-red-500">Delete</button>
+        </form>
+
         <div>
             <img src="/{{ $post->image }}" alt="{{ $post->alt }}" width="840" class="pt-6">
         </div>
