@@ -29,10 +29,10 @@
         <form method="post" action="/posts/{{ $post->slug }}/comments" class="flex">
             @csrf
             <div>
-                <img src="https://i.pravatar.cc/100" alt="Profile Picture">
+                <img src="https://i.pravatar.cc/60" alt="Profile Picture" class="rounded-full">
             </div>
             <div>
-                <textarea name="body" rows="2" placeholder="Add a comment..." required></textarea>
+                <x-textarea name="body" rows="2" placeholder="Add a comment..." required></x-textarea>
 
                 @error('body')
                 <span class="text-red-500">{{ $message }}</span>
@@ -46,7 +46,7 @@
         <x-box>
         <article class="flex">
             <div>
-                <img src="https://i.pravatar.cc/100" alt="Profile Picture">
+                <img src="https://i.pravatar.cc/60" alt="Profile Picture" class="rounded-full">
             </div>
 
             <div>

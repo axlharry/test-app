@@ -25,7 +25,7 @@
                 <label for="body">
                     Body
                 </label>
-                <textarea name="body" id="body" required>{{ old('body') }}</textarea>
+                <x-textarea name="body" id="body" required>{{ old('body') }}</x-textarea>
                 @error('body')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
