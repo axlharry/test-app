@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostCommentsController;
+use App\Http\Controllers\UserPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +33,10 @@ Route::get('/authors/{author:username}', function (User $author) {
 Route::get('register', [RegisteredUserController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisteredUserController::class, 'store'])->middleware('guest');
 
-Route::get('admin/posts/create', [PostController::class, 'create'])->middleware('admin');
-Route::post('admin/posts', [PostController::class, 'store'])->middleware('admin');
+Route::get('user/posts/create', [PostController::class, 'create'])->middleware('auth');
+Route::post('user/posts', [PostController::class, 'store'])->middleware('auth');
+Route::get('user/posts/{post}/edit', [PostController::class, 'edit'])->middleware('auth');
+Route::patch('user/posts/{post}', [PostController::class, 'update'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

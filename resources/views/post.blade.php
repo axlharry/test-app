@@ -8,6 +8,9 @@
         <span class="text-gray-400 text-base">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
         </span>
+
+        <a href="/user/posts/{{ $post->id }}/edit">Edit</a>
+
         <div>
             <img src="/{{ $post->image }}" alt="{{ $post->alt }}" width="840" class="pt-6">
         </div>
