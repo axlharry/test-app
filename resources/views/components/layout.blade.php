@@ -11,7 +11,7 @@
                 <a href="/">
                     <img src="/images/stockoclock-logo.png" alt="Stock O'Clock Logo" width="280">
                 </a>
-                <div class="m-left-auto align-right">
+                <div class="m-left-auto align-right flex">
                 @guest
                     <a href="/login">Log in</a>
                     <a href="/register" class="ml-6">Register</a>
@@ -22,6 +22,7 @@
                         @csrf
                         <button type="submit" class="text-red-500">Log out</button>
                     </form>
+                    <a href="/user/posts/create"><x-button>Add a Post</x-button></a>
                 @endauth
                 </div>
             </div>
