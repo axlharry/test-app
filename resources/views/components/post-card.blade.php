@@ -4,7 +4,7 @@
     <div class="mx-2 my-2">
     <a href="/posts/{{ $post->slug }}">
         <div>
-            <img src="/images/wall-street.jpg" alt="Wall Street">
+            <img src="/{{ $post->image }}" alt="{{ $post->alt }}">
 
 
 

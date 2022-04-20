@@ -20,18 +20,18 @@ class PostController extends Controller{
 
     public function store() {
 
-        request()->validate([
+        $attributes =request()->validate([
             'title' => 'required',
             'slug' => ['required', 'unique:posts'],
-            'body' => 'required'
+            'body' => 'required',
+            'image' => 'required|image',
+            'alt' => 'required',
         ]);
 
-        Post::create([
-            'user_id' => auth()->id(),
-            'title' => request('title'),
-            'slug' => request('slug'),
-            'body' => request('body')
-        ]);
+        $attributes['image'] = request()->file('image')->store('post_images');
+        $attributes['user_id'] = auth()->id();
+
+        Post::create($attributes);
 
         return redirect ('/');
     }

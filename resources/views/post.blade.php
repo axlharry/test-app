@@ -9,7 +9,7 @@
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
         </span>
         <div>
-            <img src="/images/wall-street.jpg" alt="Wall Street" width="840" class="pt-6">
+            <img src="/{{ $post->image }}" alt="{{ $post->alt }}" width="840" class="pt-6">
         </div>
         <div>
             <p class="text-xl py-6">
