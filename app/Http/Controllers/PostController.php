@@ -43,11 +43,20 @@ class PostController extends Controller{
         ]);
     }
 
-    public function edit(Post $post) {
+    public function edit(Request $request, Post $post) {
+
+        if ($request->user()->cannot('edit', $post)) {
+            abort(403);
+        }
+
         return view('edit', ['post' => $post]);
     }
 
-    public function update(Post $post) {
+    public function update(Request $request, Post $post) {
+
+        if ($request->user()->cannot('update', $post)) {
+            abort(403);
+        }
 
         $attributes =request()->validate([
             'title' => 'required',

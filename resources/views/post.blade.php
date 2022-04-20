@@ -3,13 +3,13 @@
         <h1 class="text-4xl font-bold">{{ $post->title }}</h1>
 
         <h3 class="font-bold hover:text-green-500 text-lg">
-            By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
+            By <a href="/authors/{{ $post->author->username }}">{{ $post->author->id }}{{ auth()->id() }}</a>
         </h3>
         <span class="text-gray-400 text-base">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
         </span>
 
-        <a href="/user/posts/{{ $post->id }}/edit">Edit</a>
+        <a href="/user/posts/{{ $post->id }}/edit" class="text-green-500">Edit</a>
 
         <div>
             <img src="/{{ $post->image }}" alt="{{ $post->alt }}" width="840" class="pt-6">
@@ -62,7 +62,5 @@
         </x-box>
         @endforeach
     </section>
-
-    <a href="/" class="text-green-500 text-base">Go to home</a>
 
 </x-layout>
