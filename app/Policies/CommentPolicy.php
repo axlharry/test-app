@@ -2,15 +2,15 @@
 
 namespace App\Policies;
 
-use App\Models\Post;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PostPolicy
+class CommentPolicy
 {
     use HandlesAuthorization;
 
-    /**
+   /**
  * Perform pre-authorization checks.
  *
  * @param  \App\Models\User  $user
@@ -28,35 +28,35 @@ public function before(User $user, $ability)
      * Determine whether the user can edit posts.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return bool
      */
-    public function edit(User $user, Post $post)
+    public function edit(User $user, Comment $comment)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $comment->user_id;
     }
 
     /**
      * Determine whether the user can update postss.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment  $comment
      * @return bool
      */
-    public function update(User $user, Post $post)
+    public function update(User $user, Comment $comment)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $comment->user_id;
     }
 
         /**
      * Determine whether the user can delete posts.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Post  $post
+     * @param  \App\Models\Comment $comment
      * @return bool
      */
-    public function destroy(User $user, Post $post)
+    public function destroy(User $user, Comment $comment)
     {
-        return $user->id === $post->user_id;
+        return $user->id === $comment->user_id;
     }
 }

@@ -65,6 +65,14 @@
             </div>
 
             <p>{{ $comment->body }}</p>
+            <a href="/user/comments/{{ $comment->id }}/edit" class="text-green-500">Edit</a>
+
+<form method="post" action="/user/comments/{{ $comment->id }}">
+    @csrf
+    @method('DELETE')
+
+    <button class="text-red-500">Delete</button>
+</form>
         </article>
         </x-box>
         @endforeach

@@ -72,13 +72,17 @@ class PostController extends Controller{
 
         $post->update($attributes);
 
-        return redirect ('/')->with('success', 'Post Updated');
+        return redirect ('/');
     }
 
-    public function destroy(Post $post) {
+    public function destroy(Request $request, Post $post) {
+        if ($request->user()->cannot('destroy', $post)) {
+            abort(403);
+        }
+
         $post->delete();
 
-        return redirect('/')->with('success', 'Post Deleted');
+        return redirect('/');
     }
 
 }

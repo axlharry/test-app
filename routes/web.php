@@ -39,6 +39,10 @@ Route::get('user/posts/{post}/edit', [PostController::class, 'edit'])->middlewar
 Route::patch('user/posts/{post}', [PostController::class, 'update'])->middleware('auth');
 Route::delete('user/posts/{post}', [PostController::class, 'destroy'])->middleware('auth');
 
+Route::get('user/comments/{comment}/edit', [PostCommentsController::class, 'edit'])->middleware('auth');
+Route::patch('user/comments/{comment}', [PostCommentsController::class, 'update'])->middleware('auth');
+Route::delete('user/comments/{comment}', [PostCommentsController::class, 'destroy'])->middleware('auth');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
