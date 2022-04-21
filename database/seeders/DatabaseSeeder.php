@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $admin = User::create([
             'name' => 'Josh Harry',
             'username' => 'joshharry',
             'email' => 'josh@example.com',
@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
          Avatar::factory(18)->create();
          Post::factory(20)->create();
          Comment::factory(50)->create();
+
+         $admin->followings()->attach(User::inRandomOrder()->first()->pluck('id'));
+         $admin->followers()->attach(User::inRandomOrder()->first()->pluck('id'));  
 
     }
 }

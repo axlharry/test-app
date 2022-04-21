@@ -17,7 +17,7 @@
                     <a href="/register" class="ml-6">Register</a>
                 @endguest
                 @auth
-                    <a href="/authors/{{ auth()->user()->username }}">{{ auth()->user()->name }}</a>
+                    <span>{{ auth()->user()->name }}</span>
                     <form method="POST" action="/logout">
                         @csrf
                         <button type="submit" class="text-red-500">Log out</button>
