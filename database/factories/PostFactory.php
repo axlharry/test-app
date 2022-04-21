@@ -23,7 +23,6 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'body' => $this->faker->paragraph,
-            'image' => "post_images/wallstreet.jpg"
         ];
     }
 }
