@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function avatar()
+    {
+        return $this->hasOne(Avatar::class);
+    }
 }

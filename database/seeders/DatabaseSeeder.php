@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Avatar;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -26,9 +27,15 @@ class DatabaseSeeder extends Seeder
             'password' => 'testtest',
             'is_admin' => true,
             'remember_token' => Str::random(10),
+
         ]);
 
-         Comment::factory(12)->create();
+        Avatar::factory()->create(['user_id' => 1]);
+
+         //Comment::factory(12)->create();
+         Avatar::factory(18)->create();
+         Post::factory(20)->create();
+         Comment::factory(50)->create();
 
     }
 }

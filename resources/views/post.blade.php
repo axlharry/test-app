@@ -39,7 +39,7 @@
         <form method="post" action="/posts/{{ $post->slug }}/comments" class="flex">
             @csrf
             <div>
-                <img src="https://i.pravatar.cc/60" alt="Profile Picture" class="rounded-full">
+                <img src="{{ Auth::user()->avatar->image }}" alt="Profile Picture" class="rounded-full">
             </div>
             <div>
                 <x-textarea name="body" rows="2" placeholder="Add a comment..." required></x-textarea>
@@ -56,7 +56,7 @@
         <x-box>
         <article class="flex">
             <div>
-                <img src="https://i.pravatar.cc/60" alt="Profile Picture" class="rounded-full">
+                <img src="{{ $comment->author->avatar->image }}" alt="Profile Picture" class="rounded-full">
             </div>
 
             <div>

@@ -18,7 +18,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => User::factory(),
+            //'user_id' => User::factory(),
+            'user_id' => User::inRandomOrder()->first()->id,
             'title' => $this->faker->sentence,
             'slug' => $this->faker->slug,
             'body' => $this->faker->paragraph
