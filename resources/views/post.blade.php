@@ -3,8 +3,9 @@
         <h1 class="text-4xl font-bold">{{ $post->title }}</h1>
 
         <h3 class="font-bold hover:text-green-500 text-lg">
-            By <a href="/authors/{{ $post->author->username }}">{{ $post->author->id }}{{ auth()->id() }}</a>
+            By <a href="/authors/{{ $post->author->username }}">{{ $post->author->name }}</a>
         </h3>
+        <x-button></x-button>
         <span class="text-gray-400 text-base">
             Published <time>{{ $post->created_at->diffForHumans() }}</time>
         </span>
