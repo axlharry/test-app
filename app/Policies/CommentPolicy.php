@@ -10,19 +10,19 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
-   /**
- * Perform pre-authorization checks.
- *
- * @param  \App\Models\User  $user
- * @param  string  $ability
- * @return void|bool
- */
-public function before(User $user, $ability)
-{
-    if ($user->is_admin) {
-        return true;
+    /**
+     * Perform pre-authorization checks.
+     *
+     * @param  \App\Models\User  $user
+     * @param  string  $ability
+     * @return void|bool
+     */
+    public function before(User $user, $ability)
+    {
+        if ($user->is_admin) {
+            return true;
+        }
     }
-}
 
     /**
      * Determine whether the user can edit posts.
@@ -48,7 +48,7 @@ public function before(User $user, $ability)
         return $user->id === $comment->user_id;
     }
 
-        /**
+    /**
      * Determine whether the user can delete posts.
      *
      * @param  \App\Models\User  $user

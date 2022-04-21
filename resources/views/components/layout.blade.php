@@ -12,18 +12,20 @@
                     <img src="/images/stockoclock-logo.png" alt="Stock O'Clock Logo" width="280">
                 </a>
                 <div class="m-left-auto align-right flex">
-                @guest
+                    @guest
                     <a href="/login">Log in</a>
                     <a href="/register" class="ml-6">Register</a>
-                @endguest
-                @auth
+                    @endguest
+                    @auth
                     <span>{{ auth()->user()->name }}</span>
                     <form method="POST" action="/logout">
                         @csrf
-                        <button type="submit" class="text-red-500">Log out</button>
+                        <button type="submit" class="text-red-500 ml-6">Log out</button>
                     </form>
-                    <a href="/user/posts/create"><x-button>Add a Post</x-button></a>
-                @endauth
+                    <a href="/user/posts/create">
+                        <x-button class="ml-6">Add a Post</x-button>
+                    </a>
+                    @endauth
                 </div>
             </div>
         </nav>

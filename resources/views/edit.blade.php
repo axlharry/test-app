@@ -6,7 +6,8 @@
             @csrf
             @method('PATCH')
 
-            <div>
+            <div class="block">
+            <div class="mt-6">
                 <label for="title">
                     Title
                 </label>
@@ -14,7 +15,8 @@
                 @error('title')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
-
+            </div>
+            <div class="mt-6">
                 <label for="slug">
                     Slug
                 </label>
@@ -22,7 +24,8 @@
                 @error('slug')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
-
+            </div>
+            <div class="mt-6">
                 <label for="body">
                     Body
                 </label>
@@ -30,7 +33,8 @@
                 @error('body')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
-
+            </div>
+            <div class="mt-6">
                 <label for="image">
                     Image
                 </label>
@@ -38,9 +42,11 @@
                 @error('image')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
-
+            </div>
+            <div class="mt-6">
                 <img src="/{{ $post->image }}" width=100>
-
+            </div>
+            <div class="mt-6">
                 <label for="alt">
                     Image Alt Text
                 </label>
@@ -48,9 +54,10 @@
                 @error('alt')
                 <span class="text-red-500">{{ $message }}</span>
                 @enderror
-
+            </div>
+            <div class="mt-6">
                 <x-button type="submit">Update Post</x-button>
-
+            </div>
             </div>
         </form>
     </section>

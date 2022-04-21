@@ -25,14 +25,14 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public static function find($slug) {
+    public static function find($slug)
+    {
         $path = resource_path("posts/{$slug}.html");
 
-        if (! file_exists($path)) {
-          throw new ModelNotFoundException();
+        if (!file_exists($path)) {
+            throw new ModelNotFoundException();
         }
 
         return file_get_contents($path);
-
     }
 }

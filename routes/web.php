@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FollowingsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
@@ -42,6 +43,9 @@ Route::delete('user/posts/{post}', [PostController::class, 'destroy'])->middlewa
 Route::get('user/comments/{comment}/edit', [PostCommentsController::class, 'edit'])->middleware('auth');
 Route::patch('user/comments/{comment}', [PostCommentsController::class, 'update'])->middleware('auth');
 Route::delete('user/comments/{comment}', [PostCommentsController::class, 'destroy'])->middleware('auth');
+
+Route::post('user/followings/{id}', [FollowingsController::class, 'store'])->middleware('auth');
+Route::delete('user/followings/{id}', [FollowingsController::class, 'destroy'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

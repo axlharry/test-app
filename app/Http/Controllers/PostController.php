@@ -7,21 +7,25 @@ use App\Models\Post;
 use Illuminate\Validation\Rule;
 
 
-class PostController extends Controller{
+class PostController extends Controller
+{
 
-    public function index() {
+    public function index()
+    {
         return view('homepage', [
             'posts' => Post::latest()->paginate(6)
         ]);
     }
 
-    public function create() {
+    public function create()
+    {
         return view('create');
     }
 
-    public function store() {
+    public function store()
+    {
 
-        $attributes =request()->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'slug' => ['required', 'unique:posts'],
             'body' => 'required',
@@ -34,16 +38,18 @@ class PostController extends Controller{
 
         Post::create($attributes);
 
-        return redirect ('/');
+        return redirect('/');
     }
 
-    public function show(Post $post) {
+    public function show(Post $post)
+    {
         return view('post', [
             'post' => $post
         ]);
     }
 
-    public function edit(Request $request, Post $post) {
+    public function edit(Request $request, Post $post)
+    {
 
         if ($request->user()->cannot('edit', $post)) {
             abort(403);
@@ -52,13 +58,14 @@ class PostController extends Controller{
         return view('edit', ['post' => $post]);
     }
 
-    public function update(Request $request, Post $post) {
+    public function update(Request $request, Post $post)
+    {
 
         if ($request->user()->cannot('update', $post)) {
             abort(403);
         }
 
-        $attributes =request()->validate([
+        $attributes = request()->validate([
             'title' => 'required',
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
             'body' => 'required',
@@ -67,15 +74,16 @@ class PostController extends Controller{
         ]);
 
         if (isset($attributes['image'])) {
-        $attributes['image'] = request()->file('image')->store('post_images');
+            $attributes['image'] = request()->file('image')->store('post_images');
         }
 
         $post->update($attributes);
 
-        return redirect ('/');
+        return redirect('/');
     }
 
-    public function destroy(Request $request, Post $post) {
+    public function destroy(Request $request, Post $post)
+    {
         if ($request->user()->cannot('destroy', $post)) {
             abort(403);
         }
@@ -84,5 +92,4 @@ class PostController extends Controller{
 
         return redirect('/');
     }
-
 }
